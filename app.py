@@ -1,6 +1,6 @@
 # app.py
 
-from src.loader import load_pdf
+from src.loader import load_folder
 from src.splitter import split_pages
 from src.embedder import Embedder
 from src.vector_store import FaissVectorStore
@@ -11,7 +11,9 @@ from src.llm import LLMClient
 pdf_path = "data/papers/paper01.pdf"
 
 # 1. 读取PDF
-pages = load_pdf(pdf_path)
+pages = load_folder(
+    "data/papers"
+)
 
 # 2. 切块
 chunks = split_pages(pages)
